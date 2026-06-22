@@ -1,7 +1,14 @@
 # 💙 HealthNews
 
-Sistema web desenvolvido em **Python** para monitorar notícias públicas relacionadas à saúde, RCP, primeiros socorros, simulação realística e áreas relacionadas.  
-O projeto foi pensado para auxiliar empresas da área da saúde na curadoria de conteúdos relevantes e na criação de sugestões de posts para o LinkedIn.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge\&logo=sqlite\&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
+![Status](https://img.shields.io/badge/status-in%20development-yellow?style=for-the-badge)
+
+Sistema web desenvolvido em **Python** para monitorar notícias públicas relacionadas à saúde, RCP, primeiros socorros, simulação realística e áreas relacionadas.
+O projeto foi pensado para auxiliar empresas da área da saúde na curadoria de conteúdos relevantes e na criação de sugestões de posts para redes sociais.
 
 ---
 
@@ -11,7 +18,7 @@ O projeto foi pensado para auxiliar empresas da área da saúde na curadoria de 
 
 O **HealthNews** é uma aplicação web criada para buscar notícias públicas na internet sobre temas ligados à área da saúde, como **RCP**, **reanimação cardiopulmonar**, **primeiros socorros**, **emergências médicas**, **simuladores médicos** e **simulação realística**.
 
-A ideia principal do projeto é ajudar empresas que trabalham com produtos de RCP, treinamentos e simuladores a encontrarem conteúdos relevantes para publicar no LinkedIn de forma mais organizada, rápida e profissional.
+A ideia principal do projeto é ajudar empresas que trabalham com produtos de RCP, treinamentos e simuladores a encontrarem conteúdos relevantes para publicar em redes sociais de forma mais organizada, rápida e profissional.
 
 O sistema busca notícias, salva os dados em um banco local, gera uma sugestão simples de legenda e permite que os usuários revisem, aprovem, publiquem ou descartem os conteúdos.
 
@@ -19,42 +26,43 @@ O sistema busca notícias, salva os dados em um banco local, gera uma sugestão 
 
 ## 🚀 Funcionalidades
 
-- Cadastro de usuários
-- Login com sessão protegida
-- Nome personalizado para cada usuário
-- Dashboard com resumo geral
-- Busca de notícias públicas via Google News RSS
-- Filtro por palavras-chave
-- Página de notícias
-- Página de sugestões de posts
-- Página de aprovações
-- Página de configurações
-- Edição das palavras-chave de busca
-- Edição do nome e descrição do sistema
-- Geração de legenda sugerida para LinkedIn
-- Edição manual da legenda sugerida
-- Status para cada notícia:
-  - Pendente
-  - Aprovada
-  - Publicada
-  - Descartada
-- Registro do usuário que adicionou/buscou as notícias
-- Banco de dados local com SQLite
-- Interface web simples, organizada e responsiva
+* Cadastro de usuários
+* Login com sessão protegida
+* Nome personalizado para cada usuário
+* Dashboard com resumo geral
+* Busca de notícias públicas via Google News RSS
+* Filtro por palavras-chave
+* Página de notícias
+* Página de sugestões de posts
+* Página de aprovações
+* Página de configurações
+* Edição das palavras-chave de busca
+* Edição do nome e descrição do sistema
+* Geração de legenda sugerida para redes sociais
+* Edição manual da legenda sugerida
+* Status para cada notícia:
+
+  * Pendente
+  * Aprovada
+  * Publicada
+  * Descartada
+* Registro do usuário que adicionou/buscou as notícias
+* Banco de dados local com SQLite
+* Interface web simples, organizada e responsiva
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-- Python
-- FastAPI
-- Uvicorn
-- SQLite
-- Feedparser
-- Jinja2
-- HTML
-- CSS
-- Google News RSS
+* Python
+* FastAPI
+* Uvicorn
+* SQLite
+* Feedparser
+* Jinja2
+* HTML
+* CSS
+* Google News RSS
 
 ---
 
@@ -140,9 +148,9 @@ Ao abrir o sistema pela primeira vez, será exibida a tela de login.
 
 Caso ainda não tenha uma conta, clique em **Criar conta** e cadastre:
 
-- Nome de exibição
-- Nome de usuário
-- Senha
+* Nome de exibição
+* Nome de usuário
+* Senha
 
 Depois de entrar, o usuário terá acesso ao painel principal do sistema.
 
@@ -156,7 +164,7 @@ Mostra um resumo geral das notícias encontradas, conteúdos pendentes, aprovado
 
 ### 📰 Notícias
 
-Lista todas as notícias encontradas pelo sistema.  
+Lista todas as notícias encontradas pelo sistema.
 Também permite pesquisar, abrir a notícia original, visualizar detalhes e alterar seu status.
 
 ### ✍️ Sugestões
@@ -167,17 +175,17 @@ Mostra as notícias pendentes com legendas sugeridas para revisão.
 
 Organiza os conteúdos por status:
 
-- Aprovadas
-- Publicadas
-- Descartadas
+* Aprovadas
+* Publicadas
+* Descartadas
 
 ### ⚙️ Configurações
 
 Permite editar:
 
-- Nome do sistema
-- Descrição curta
-- Palavras-chave usadas para buscar notícias
+* Nome do sistema
+* Descrição curta
+* Palavras-chave usadas para buscar notícias
 
 ---
 
@@ -205,13 +213,13 @@ As notícias encontradas são salvas no banco de dados local e organizadas por c
 
 ---
 
-## 📝 Sugestão de legenda para LinkedIn
+## 📝 Sugestão de legenda para redes sociais
 
-Para cada notícia encontrada, o sistema gera uma legenda simples que pode ser usada como base para publicação no LinkedIn.
+Para cada notícia encontrada, o sistema gera uma legenda simples que pode ser usada como base para publicações em redes sociais.
 
 A legenda pode ser editada manualmente antes de ser aprovada ou publicada.
 
-> O sistema não publica automaticamente no LinkedIn. A publicação deve ser feita manualmente após revisão humana.
+> O sistema não publica automaticamente em redes sociais. A publicação deve ser feita manualmente após revisão humana.
 
 ---
 
@@ -219,46 +227,46 @@ A legenda pode ser editada manualmente antes de ser aprovada ou publicada.
 
 O projeto possui:
 
-- Senhas salvas com hash
-- Sessão protegida por cookie assinado
-- Banco de dados local SQLite
+* Senhas salvas com hash
+* Sessão protegida por cookie assinado
+* Banco de dados local SQLite
 
 Para uso profissional em produção, seria recomendado adicionar:
 
-- HTTPS
-- controle de permissões por cargo
-- recuperação de senha
-- logs de acesso
-- banco de dados em servidor
-- autenticação mais robusta
+* HTTPS
+* controle de permissões por cargo
+* recuperação de senha
+* logs de acesso
+* banco de dados em servidor
+* autenticação mais robusta
 
 ---
 
 ## 🎯 Objetivo do projeto
 
-O objetivo do **HealthNews** é facilitar a curadoria de notícias da área da saúde e ajudar empresas a criarem conteúdos relevantes para redes profissionais, principalmente o LinkedIn.
+O objetivo do **HealthNews** é facilitar a curadoria de notícias da área da saúde e ajudar empresas a criarem conteúdos relevantes para redes sociais.
 
 O projeto também demonstra conhecimentos em:
 
-- desenvolvimento web com Python
-- criação de APIs com FastAPI
-- autenticação de usuários
-- banco de dados SQLite
-- consumo de RSS
-- organização de dados
-- criação de interface web
-- automação de processos
+* desenvolvimento web com Python
+* criação de APIs com FastAPI
+* autenticação de usuários
+* banco de dados SQLite
+* consumo de RSS
+* organização de dados
+* criação de interface web
+* automação de processos
 
 ---
 
 ## 📌 Status do projeto
 
-Projeto em desenvolvimento.  
+Projeto em desenvolvimento.
 A versão atual possui as principais funcionalidades do MVP funcionando localmente.
 
 ---
 
-## 👩‍💻 Desenvolvido por
+## 👨‍💻 Desenvolvido por
 
 Projeto desenvolvido por **Andrew R**.
 
@@ -272,50 +280,51 @@ Projeto desenvolvido por **Andrew R**.
 
 **HealthNews** is a web application created to search for public news related to healthcare topics such as **CPR**, **cardiopulmonary resuscitation**, **first aid**, **medical emergencies**, **medical simulators**, and **realistic simulation**.
 
-The main goal of this project is to help companies that work with CPR products, training solutions, and healthcare simulators find relevant content to publish on LinkedIn in a more organized, fast, and professional way.
+The main goal of this project is to help companies that work with CPR products, training solutions, and healthcare simulators find relevant content to publish on social media in a more organized, fast, and professional way.
 
-The system searches for news, stores the data in a local database, generates a simple LinkedIn caption suggestion, and allows users to review, approve, publish, or discard the content.
+The system searches for news, stores the data in a local database, generates a simple social media caption suggestion, and allows users to review, approve, publish, or discard the content.
 
 ---
 
 ## 🚀 Features
 
-- User registration
-- Login with protected session
-- Custom display name for each user
-- Dashboard with general overview
-- Public news search using Google News RSS
-- Keyword-based filtering
-- News page
-- Post suggestions page
-- Approval page
-- Settings page
-- Editable search keywords
-- Editable system name and description
-- LinkedIn caption suggestion generation
-- Manual editing of suggested captions
-- Status for each news item:
-  - Pending
-  - Approved
-  - Published
-  - Discarded
-- Tracks which user added/searched the news
-- Local SQLite database
-- Simple, organized, and responsive web interface
+* User registration
+* Login with protected session
+* Custom display name for each user
+* Dashboard with general overview
+* Public news search using Google News RSS
+* Keyword-based filtering
+* News page
+* Post suggestions page
+* Approval page
+* Settings page
+* Editable search keywords
+* Editable system name and description
+* Social media caption suggestion generation
+* Manual editing of suggested captions
+* Status for each news item:
+
+  * Pending
+  * Approved
+  * Published
+  * Discarded
+* Tracks which user added/searched the news
+* Local SQLite database
+* Simple, organized, and responsive web interface
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Python
-- FastAPI
-- Uvicorn
-- SQLite
-- Feedparser
-- Jinja2
-- HTML
-- CSS
-- Google News RSS
+* Python
+* FastAPI
+* Uvicorn
+* SQLite
+* Feedparser
+* Jinja2
+* HTML
+* CSS
+* Google News RSS
 
 ---
 
@@ -401,9 +410,9 @@ When opening the system for the first time, the login page will be displayed.
 
 If you do not have an account yet, click **Create account** and register:
 
-- Display name
-- Username
-- Password
+* Display name
+* Username
+* Password
 
 After logging in, the user will have access to the main system dashboard.
 
@@ -417,28 +426,28 @@ Displays a general overview of found news, pending content, approved content, an
 
 ### 📰 News
 
-Lists all news found by the system.  
+Lists all news found by the system.
 It also allows users to search, open the original news source, view details, and update the news status.
 
 ### ✍️ Suggestions
 
-Displays pending news with suggested LinkedIn captions for review.
+Displays pending news with suggested social media captions for review.
 
 ### ✅ Approvals
 
 Organizes content by status:
 
-- Approved
-- Published
-- Discarded
+* Approved
+* Published
+* Discarded
 
 ### ⚙️ Settings
 
 Allows users to edit:
 
-- System name
-- Short description
-- Keywords used to search for news
+* System name
+* Short description
+* Keywords used to search for news
 
 ---
 
@@ -465,13 +474,13 @@ The news found is stored in a local database and organized by category.
 
 ---
 
-## 📝 LinkedIn Caption Suggestion
+## 📝 Social Media Caption Suggestion
 
-For each news item found, the system generates a simple caption that can be used as a base for a LinkedIn post.
+For each news item found, the system generates a simple caption that can be used as a base for a social media post.
 
 The caption can be manually edited before being approved or published.
 
-> The system does not automatically publish to LinkedIn. Publishing must be done manually after human review.
+> The system does not automatically publish to social media. Publishing must be done manually after human review.
 
 ---
 
@@ -479,45 +488,45 @@ The caption can be manually edited before being approved or published.
 
 The project includes:
 
-- Password hashing
-- Session protected by signed cookies
-- Local SQLite database
+* Password hashing
+* Session protected by signed cookies
+* Local SQLite database
 
 For professional production use, it would be recommended to add:
 
-- HTTPS
-- role-based permissions
-- password recovery
-- access logs
-- server-based database
-- stronger authentication
+* HTTPS
+* role-based permissions
+* password recovery
+* access logs
+* server-based database
+* stronger authentication
 
 ---
 
 ## 🎯 Project Goal
 
-The goal of **HealthNews** is to make healthcare news curation easier and help companies create relevant content for professional social media, especially LinkedIn.
+The goal of **HealthNews** is to make healthcare news curation easier and help companies create relevant content for social media.
 
 The project also demonstrates knowledge in:
 
-- web development with Python
-- API development with FastAPI
-- user authentication
-- SQLite database
-- RSS consumption
-- data organization
-- web interface creation
-- process automation
+* web development with Python
+* API development with FastAPI
+* user authentication
+* SQLite database
+* RSS consumption
+* data organization
+* web interface creation
+* process automation
 
 ---
 
 ## 📌 Project Status
 
-Project under development.  
+Project under development.
 The current version includes the main MVP features running locally.
 
 ---
 
-## 👩‍💻 Developed by
+## 👨‍💻 Developed by
 
 Project developed by **Andrew R**.

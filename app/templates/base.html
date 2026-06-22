@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ settings.company_name }} | HealthNews</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">💙</div>
+            <div>
+                <h1>{{ settings.company_name }}</h1>
+                <p>{{ settings.company_description }}</p>
+            </div>
+        </div>
+
+        <nav>
+            <a class="{% if active_page == 'dashboard' %}active{% endif %}" href="/dashboard">🏠 Dashboard</a>
+            <a class="{% if active_page == 'noticias' %}active{% endif %}" href="/noticias">📰 Notícias</a>
+            <a class="{% if active_page == 'sugestoes' %}active{% endif %}" href="/sugestoes">✍️ Sugestões</a>
+            <a class="{% if active_page == 'aprovacoes' %}active{% endif %}" href="/aprovacoes">✅ Aprovações</a>
+            <a class="{% if active_page == 'configuracoes' %}active{% endif %}" href="/configuracoes">⚙️ Configurações</a>
+        </nav>
+
+        <div class="user-box">
+            <div class="avatar">{{ user.display_name[0]|upper }}</div>
+            <div>
+                <strong>{{ user.display_name }}</strong>
+                <p>@{{ user.username }}</p>
+            </div>
+        </div>
+
+        <a href="/logout" class="logout">🚪 Sair</a>
+    </aside>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

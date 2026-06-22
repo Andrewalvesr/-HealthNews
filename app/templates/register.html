@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Criar conta | HealthNews</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="auth-body">
+    <main class="auth-card">
+        <div class="auth-logo">💙</div>
+        <h1>Criar conta</h1>
+        <p>Cadastre um usuário com nome personalizado para acessar o painel.</p>
+
+        {% if error %}
+            <div class="auth-error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/register" method="post" class="auth-form">
+            <label>Nome de exibição</label>
+            <input type="text" name="display_name" placeholder="Ex: Giovanna" required />
+
+            <label>Nome de usuário</label>
+            <input type="text" name="username" placeholder="Ex: giovanna" required />
+
+            <label>Senha</label>
+            <input type="password" name="password" placeholder="Mínimo 6 caracteres" required />
+
+            <label>Confirmar senha</label>
+            <input type="password" name="confirm_password" placeholder="Repita a senha" required />
+
+            <button type="submit">Criar conta</button>
+        </form>
+
+        <p class="auth-link">Já tem conta? <a href="/login">Entrar</a></p>
+    </main>
+</body>
+</html>

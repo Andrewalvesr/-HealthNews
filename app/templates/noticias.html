@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>📰 Notícias</h2>
+        <p>Veja todas as notícias encontradas pelo sistema.</p>
+    </div>
+
+    <form action="/fetch-news" method="post">
+        <button type="submit" class="primary-btn">🔄 Atualizar notícias</button>
+    </form>
+</header>
+
+<section class="panel">
+    <div class="panel-header">
+        <h3>{{ title }}</h3>
+        <form action="/noticias" method="get" class="search-form">
+            <input type="text" name="busca" value="{{ busca }}" placeholder="Buscar por título ou categoria..." />
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    {% if news %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Adicionada por</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in news %}
+                <tr>
+                    <td><strong>{{ item.title }}</strong><small>{{ item.published }}</small></td>
+                    <td><span class="tag">{{ item.category }}</span></td>
+                    <td><span class="status status-{{ item.status }}">{{ item.status }}</span></td>
+                    <td>{{ item.creator_name or "Sistema" }}</td>
+                    <td>
+                        <a class="icon-btn" href="/noticias/{{ item.id }}">👁️</a>
+                        <a class="icon-btn" href="{{ item.link }}" target="_blank">🔗</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="empty">
+            <h3>Nenhuma notícia encontrada.</h3>
+            <p>Atualize as notícias ou ajuste as palavras-chave em Configurações.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

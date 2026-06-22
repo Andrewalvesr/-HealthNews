@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>Olá, {{ user.display_name }}! 👋</h2>
+        <p>Aqui está o resumo das notícias monitoradas.</p>
+    </div>
+
+    <form action="/fetch-news" method="post">
+        <button type="submit" class="primary-btn">🔄 Atualizar notícias</button>
+    </form>
+</header>
+
+<section class="cards">
+    <div class="card"><span>📰</span><p>Notícias encontradas</p><h3>{{ stats.total }}</h3></div>
+    <div class="card"><span>💡</span><p>Pendentes</p><h3>{{ stats.pending }}</h3></div>
+    <div class="card"><span>✅</span><p>Aprovadas</p><h3>{{ stats.approved }}</h3></div>
+    <div class="card"><span>📤</span><p>Publicadas</p><h3>{{ stats.published }}</h3></div>
+</section>
+
+<section class="layout">
+    <section class="panel">
+        <div class="panel-header">
+            <h3>Últimas notícias encontradas</h3>
+            <a href="/noticias">Ver todas</a>
+        </div>
+
+        {% if stats.recent_news %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Categoria</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in stats.recent_news %}
+                    <tr>
+                        <td><strong>{{ item.title }}</strong><small>{{ item.published }}</small></td>
+                        <td><span class="tag">{{ item.category }}</span></td>
+                        <td><span class="status status-{{ item.status }}">{{ item.status }}</span></td>
+                        <td>
+                            <a class="icon-btn" href="/noticias/{{ item.id }}">👁️</a>
+                            <a class="icon-btn" href="{{ item.link }}" target="_blank">🔗</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="empty">
+                <h3>Nenhuma notícia encontrada ainda.</h3>
+                <p>Clique em “Atualizar notícias” para fazer a primeira busca.</p>
+            </div>
+        {% endif %}
+    </section>
+
+    <aside class="panel">
+        <h3>Fluxo de uso</h3>
+        <div class="flow-list">
+            <div>🔎 Buscar notícias públicas</div>
+            <div>🏷️ Classificar por categoria</div>
+            <div>✍️ Gerar sugestão de legenda</div>
+            <div>👀 Revisar conteúdo</div>
+            <div>✅ Aprovar ou descartar</div>
+            <div>📤 Publicar manualmente no LinkedIn</div>
+        </div>
+    </aside>
+</section>
+
+<section class="bottom-grid">
+    <section class="panel">
+        <h3>Categorias mais encontradas</h3>
+        {% if stats.categories %}
+            <div class="category-grid">
+                {% for category in stats.categories %}
+                <div><strong>{{ category.category }}</strong><span>{{ category.total }} notícia(s)</span></div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Nenhuma categoria encontrada ainda.</p>
+        {% endif %}
+    </section>
+
+    <section class="panel">
+        <h3>Usuários cadastrados</h3>
+        {% if stats.users %}
+            {% for app_user in stats.users %}
+            <div class="mini-user">
+                <div class="mini-avatar">{{ app_user.display_name[0]|upper }}</div>
+                <div><strong>{{ app_user.display_name }}</strong><span>{{ app_user.total }} notícia(s) adicionada(s)</span></div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum usuário cadastrado ainda.</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock %}

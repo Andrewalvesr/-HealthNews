@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>✅ Aprovações</h2>
+        <p>Acompanhe conteúdos aprovados, publicados e descartados.</p>
+    </div>
+</header>
+
+<section class="panel">
+    <div class="tabs">
+        <a class="{% if selected_status == 'aprovada' %}active-tab{% endif %}" href="/aprovacoes?status=aprovada">Aprovadas</a>
+        <a class="{% if selected_status == 'publicada' %}active-tab{% endif %}" href="/aprovacoes?status=publicada">Publicadas</a>
+        <a class="{% if selected_status == 'descartada' %}active-tab{% endif %}" href="/aprovacoes?status=descartada">Descartadas</a>
+    </div>
+
+    {% if news %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in news %}
+                <tr>
+                    <td><strong>{{ item.title }}</strong><small>{{ item.published }}</small></td>
+                    <td><span class="tag">{{ item.category }}</span></td>
+                    <td><span class="status status-{{ item.status }}">{{ item.status }}</span></td>
+                    <td>
+                        <a class="icon-btn" href="/noticias/{{ item.id }}">👁️</a>
+                        <a class="icon-btn" href="{{ item.link }}" target="_blank">🔗</a>
+
+                        {% if selected_status == 'aprovada' %}
+                        <form action="/noticias/{{ item.id }}/status" method="post" class="inline-form">
+                            <input type="hidden" name="redirect_to" value="/aprovacoes?status=aprovada">
+                            <button name="status" value="publicada" class="small-btn">Marcar publicada</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="empty">
+            <h3>Nenhum conteúdo nesta aba.</h3>
+            <p>Os conteúdos aparecerão aqui conforme forem aprovados, publicados ou descartados.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

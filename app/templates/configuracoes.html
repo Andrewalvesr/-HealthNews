@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>⚙️ Configurações</h2>
+        <p>Personalize o nome do sistema e as palavras-chave usadas na busca.</p>
+    </div>
+</header>
+
+<section class="panel settings-panel">
+    {% if saved %}
+        <div class="success-message">Configurações salvas com sucesso ✅</div>
+    {% endif %}
+
+    <form action="/configuracoes" method="post" class="settings-form">
+        <label>Nome da empresa/sistema</label>
+        <input type="text" name="company_name" value="{{ settings.company_name }}" required>
+
+        <label>Descrição curta</label>
+        <input type="text" name="company_description" value="{{ settings.company_description }}" required>
+
+        <label>Palavras-chave de busca</label>
+        <p class="help-text">Coloque uma palavra ou termo por linha.</p>
+        <textarea name="keywords" class="keywords-box">{{ settings.keywords_text }}</textarea>
+
+        <button class="primary-btn" type="submit">Salvar configurações</button>
+    </form>
+</section>
+{% endblock %}

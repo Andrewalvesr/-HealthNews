@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>Detalhes da notícia</h2>
+        <p>Revise a fonte, edite a legenda e altere o status.</p>
+    </div>
+
+    <a href="/noticias" class="secondary-btn">Voltar</a>
+</header>
+
+<section class="detail-grid">
+    <section class="panel">
+        <span class="tag">{{ selected_news.category }}</span>
+        <h2>{{ selected_news.title }}</h2>
+
+        <p><strong>Fonte:</strong> {{ selected_news.source }}</p>
+        <p><strong>Data:</strong> {{ selected_news.published }}</p>
+        <p><strong>Status:</strong> <span class="status status-{{ selected_news.status }}">{{ selected_news.status }}</span></p>
+        <p><strong>Adicionada por:</strong> {{ selected_news.creator_name or "Sistema" }}</p>
+
+        <a href="{{ selected_news.link }}" target="_blank">Abrir notícia original 🔗</a>
+
+        <hr>
+
+        <form action="/noticias/{{ selected_news.id }}/status" method="post" class="actions horizontal">
+            <button name="status" value="aprovada" class="approve">✅ Aprovar</button>
+            <button name="status" value="publicada" class="publish">📤 Publicada</button>
+            <button name="status" value="descartada" class="danger">🗑️ Descartar</button>
+        </form>
+
+        <form action="/noticias/{{ selected_news.id }}/delete" method="post" class="delete-form">
+            <button type="submit" class="danger">Excluir notícia definitivamente</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h3>Legenda sugerida</h3>
+
+        <form action="/noticias/{{ selected_news.id }}/legenda" method="post">
+            <textarea name="post_suggestion">{{ selected_news.post_suggestion }}</textarea>
+            <button class="primary-btn" type="submit">Salvar legenda</button>
+        </form>
+    </section>
+</section>
+{% endblock %}

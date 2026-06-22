@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+    <div>
+        <h2>✍️ Sugestões</h2>
+        <p>Posts pendentes para revisar antes de aprovar.</p>
+    </div>
+
+    <a class="secondary-btn" href="/noticias">Ver todas as notícias</a>
+</header>
+
+<section class="panel">
+    <h3>{{ title }}</h3>
+
+    {% if news %}
+        <div class="post-grid">
+            {% for item in news %}
+            <article class="post-card">
+                <span class="tag">{{ item.category }}</span>
+                <h3>{{ item.title }}</h3>
+                <p><strong>Status:</strong> {{ item.status }}</p>
+                <p><strong>Adicionada por:</strong> {{ item.creator_name or "Sistema" }}</p>
+                <textarea readonly>{{ item.post_suggestion }}</textarea>
+
+                <div class="card-actions">
+                    <a href="/noticias/{{ item.id }}" class="secondary-btn">Editar</a>
+                    <form action="/noticias/{{ item.id }}/status" method="post">
+                        <input type="hidden" name="redirect_to" value="/sugestoes">
+                        <button name="status" value="aprovada" class="approve">✅ Aprovar</button>
+                    </form>
+                    <form action="/noticias/{{ item.id }}/status" method="post">
+                        <input type="hidden" name="redirect_to" value="/sugestoes">
+                        <button name="status" value="descartada" class="danger">🗑️ Descartar</button>
+                    </form>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty">
+            <h3>Nenhuma sugestão pendente.</h3>
+            <p>Quando novas notícias forem encontradas, elas aparecerão aqui.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
